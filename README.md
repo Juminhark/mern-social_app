@@ -1,6 +1,10 @@
 # social media app
 
+- [client - site](https://modest-newton-1e3bda.netlify.app/)
+- [server - api)](https://mern-socialapp.herokuapp.com/posts)
+
 - [Full Stack MERN Project - Build and Deploy an App | React + Redux, Node, Express, MongoDB [Part 1/2]](https://www.youtube.com/watch?v=ngc9gnGgUdA&list=PL6QREj8te1P7VSwhrMf3D3Xt4V6_SRkhu&index=1)
+- [Full Stack MERN Project - Build and Deploy an App | React + Redux, Node, Express, MongoDB [Part 2/2]](https://www.youtube.com/watch?v=aibtHnbeuio)
 
 ## server
 
@@ -81,6 +85,36 @@ const Form = () => {
 };
 
 export default Form;
+```
+
+## [HEROKU](https://www.heroku.com/)
+
+- server side Deploy
+
+```sh
+> npm install -g heroku
+> heroku -v
+
+> heroku login
+```
+
+## [NETLIFY](https://app.netlify.com/)
+
+- sites 하단에 build로 추가
+
+```sh
+> npm run build
+```
+
+## auth
+
+```sh
+// client
+> npm install jwt-decode react-google-login
+
+
+// server
+> npm install bcryptjs jsonwebtoken
 ```
 
 ## reference

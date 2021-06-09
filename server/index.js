@@ -16,6 +16,10 @@ app.use(cors());
 
 app.use('/posts', postRoutes);
 
+app.use('/', (req, res) => {
+	res.send('Hello to Memories API');
+});
+
 // https://www.mongodb.com/cloud/atlas
 const PORT = process.env.PORT || 5000;
 
