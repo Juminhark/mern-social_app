@@ -117,6 +117,15 @@ export default Form;
 > npm install bcryptjs jsonwebtoken
 ```
 
+## Optional chaining
+
+- [DOC](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Operators/Optional_chaining)
+
+```js
+//? res?. : 있으면 하부 prop 사용. 없으면 undefined
+const result = res?.profileObj;
+```
+
 ## reference
 
 - [HTTP Status Codes](https://restapitutorial.com/httpstatuscodes.html)
