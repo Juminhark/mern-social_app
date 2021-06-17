@@ -126,6 +126,25 @@ export default Form;
 const result = res?.profileObj;
 ```
 
+## useLocation
+
+```ts
+import { useLocation } from 'react-router-dom';
+
+const Navbar = () => {
+	const dispatch = useDispatch();
+	const history = useHistory();
+	const location = useLocation();
+
+	// location(url)의 변화가 있을경우
+	useEffect(() => {
+		const token = user?.token;
+
+		setUser(JSON.parse(localStorage.getItem('profile')));
+	}, [location]);
+};
+```
+
 ## reference
 
 - [HTTP Status Codes](https://restapitutorial.com/httpstatuscodes.html)
