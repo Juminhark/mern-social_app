@@ -57,15 +57,27 @@ export const deletePost = async (req, res) => {
 export const likePost = async (req, res) => {
 	const { id } = req.params;
 
+	// router에서 보면 auth에서 이미 req.userId에 data를 담았다
+	if (!req.userId) return res.json({ message: 'Unauthenticated' });
+
 	if (!mongoose.Types.ObjectId.isValid(id))
 		return res.status(404).send('No post with that id');
 
 	const post = await PostMessage.findById(id);
-	const updatedPost = await PostMessage.findByIdAndUpdate(
-		id,
-		{ likeCount: post.likeCount + 1 },
-		{ new: true }
-	);
+
+	const index = post.likes.findIndex((id) => id === String(req.userId));
+
+	if (index === -1) {
+		// like the post
+		post.likes.push(req.userId);
+	} else {
+		// dislike a post
+		post.likes = post.likes.filter((id) => id !== String(req.userId));
+	}
+
+	const updatedPost = await PostMessage.findByIdAndUpdate(id, post, {
+		new: true,
+	});
 
 	res.json(updatedPost);
 };
