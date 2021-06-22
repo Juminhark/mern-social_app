@@ -60,6 +60,7 @@
 
 - file reader
   - react-file-base64 이거 설치가 안됨
+  - 일단 react-file-base64 동작하는 version으로 가져옴
 
 ```js
 import React, { useState } from 'react';
@@ -124,6 +125,26 @@ export default Form;
 ```js
 //? res?. : 있으면 하부 prop 사용. 없으면 undefined
 const result = res?.profileObj;
+```
+
+- error : syntax error : optional chaining이 안먹히네?
+  - version문제 : react-scripts 4+ 이상에서 동작이 될때도 있고 3.x.x에서 될때도 있고 판단하기 어려움
+  - [도움](https://www.carlrippon.com/optional-chaining-with-react-and-typescript/)에서 확인한 version
+    - TypeScript 3.7 supports optional chaining
+    - Babel 7.8.0 supports optional chaining
+    - Projects created with create react app 3.3.0 supports optional chaining as well!
+
+```sh
+Syntax error: C:/DEV/mern-social_app/client/src/components/Auth/Auth.js: Unexpected token (60:21)
+
+  58 |
+  59 |  const googleSuccess = async (res) => {
+> 60 |          const result = res?.profileObj;
+     |                             ^
+  61 |          const token = res?.tokenId;
+  62 |
+  63 |          try {
+
 ```
 
 ## useLocation
