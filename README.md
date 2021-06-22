@@ -3,9 +3,6 @@
 - [client - site](https://modest-newton-1e3bda.netlify.app/)
 - [server - api)](https://mern-socialapp.herokuapp.com/posts)
 
-- [Full Stack MERN Project - Build and Deploy an App | React + Redux, Node, Express, MongoDB [Part 1/2]](https://www.youtube.com/watch?v=ngc9gnGgUdA&list=PL6QREj8te1P7VSwhrMf3D3Xt4V6_SRkhu&index=1)
-- [Full Stack MERN Project - Build and Deploy an App | React + Redux, Node, Express, MongoDB [Part 2/2]](https://www.youtube.com/watch?v=aibtHnbeuio)
-
 ## server
 
 - init
@@ -166,6 +163,10 @@ const Navbar = () => {
 };
 ```
 
+## [Zeet](https://zeet.co/new)
+
 ## reference
 
 - [HTTP Status Codes](https://restapitutorial.com/httpstatuscodes.html)
+- [Full Stack MERN Project - Build and Deploy an App | React + Redux, Node, Express, MongoDB [Part 1/2]](https://www.youtube.com/watch?v=ngc9gnGgUdA&list=PL6QREj8te1P7VSwhrMf3D3Xt4V6_SRkhu&index=1)
+- [Full Stack MERN Project - Build and Deploy an App | React + Redux, Node, Express, MongoDB [Part 2/2]](https://www.youtube.com/watch?v=aibtHnbeuio)
