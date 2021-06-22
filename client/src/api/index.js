@@ -1,6 +1,8 @@
 import axios from 'axios';
 
-const API = axios.create({ baseURL: 'http://localhost:5000' });
+const API = axios.create({
+	baseURL: 'https://juminhark-mern-social-app-server.zeet.app/',
+});
 
 API.interceptors.request.use((req) => {
 	if (localStorage.getItem('profile')) {
