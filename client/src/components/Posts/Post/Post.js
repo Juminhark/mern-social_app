@@ -51,7 +51,7 @@ const Post = ({ post, setCurrentId }) => {
 	};
 
 	return (
-		<Card className={classes.card}>
+		<Card className={classes.card} raised elevation={6}>
 			<CardMedia
 				className={classes.media}
 				image={
@@ -69,11 +69,14 @@ const Post = ({ post, setCurrentId }) => {
 
 			{(user?.result?.googleId === post?.creator ||
 				user?.result?._id === post?.creator) && (
-				<div className={classes.overlay2}>
+				<div className={classes.overlay2} name="edit">
 					<Button
+						onClick={(e) => {
+							e.stopPropagation();
+							setCurrentId(post._id);
+						}}
 						style={{ color: 'white' }}
 						size="small"
-						onClick={() => setCurrentId(post._id)}
 					>
 						<MoreHorizIcon fontSize="default" />
 					</Button>

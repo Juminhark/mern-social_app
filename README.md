@@ -1,7 +1,6 @@
 # social media app
 
-- [client - site](https://modest-newton-1e3bda.netlify.app/)
-- [server - api)](https://mern-socialapp.herokuapp.com/posts)
+- [deploy](https://juminhark-mern-social-app.zeet.app/)
 
 ## server
 
@@ -164,6 +163,127 @@ const Navbar = () => {
 ```
 
 ## [Zeet - Deploy](https://zeet.co/new)
+
+## update 2.0
+
+```sh
+> cd client
+> npm install @material-ui/lab material-ui-chip-input
+
+```
+
+## Pagination
+
+- client
+
+```ts
+// Home
+<Pagination page={page} />;
+
+// Pagination
+useEffect(() => {
+	if (page) dispatch(getPosts(page));
+}, [page]);
+
+// actions/posts
+export const getPosts = (page) => async (dispatch) => {
+	try {
+		const { data } = await api.fetchPosts(page);
+
+		dispatch({ type: FETCH_ALL, payload: data });
+	} catch (error) {
+		console.log(error.message);
+	}
+};
+
+// api/index
+export const fetchPosts = (page) => API.get(`/posts?page=${page}`);
+```
+
+- server
+
+```ts
+// controllers/posts
+export const getPosts = async (req, res) => {
+	const { page } = req.query;
+
+	try {
+		const LIMIT = 8;
+
+		// get the stating index of every page
+		const startIndex = (Number(page) - 1) * LIMIT;
+
+		const total = await PostMessage.countDocuments({});
+
+		const posts = await PostMessage.find()
+			.sort({ _id: -1 })
+			.limit(LIMIT)
+			.skip(startIndex);
+
+		res.status(200).json({
+			data: posts,
+			currentPage: Number(page),
+			numberOfPage: Math.ceil(total / LIMIT),
+		});
+	} catch (error) {
+		res.status(404).json({ message: error.message });
+	}
+};
+```
+
+## Loading
+
+```ts
+// constants/actionType
+export const START_LOADING = 'START_LOADING';
+export const END_LOADING = 'END_LOADING';
+
+// reducers/posts
+import { START_LOADING, END_LOADING } from '../constants/actionTypes';
+
+export default (state = { isLoading: true, posts: [] }, action) => {
+	switch (action.type) {
+		case START_LOADING:
+			return { ...state, isLoading: true };
+		case END_LOADING:
+			return { ...state, isLoading: false };
+		default:
+			return state;
+	}
+};
+
+// actions/posts
+import { START_LOADING, END_LOADING } from '../constants/actionTypes';
+import * as api from '../api/index.js';
+
+export const getPosts = (page) => async (dispatch) => {
+	try {
+		dispatch({ type: START_LOADING });
+		const { data } = await api.fetchPosts(page);
+
+		dispatch({ type: FETCH_ALL, payload: data });
+		dispatch({ type: END_LOADING });
+	} catch (error) {
+		console.log(error.message);
+	}
+};
+
+export const getPostsBySearch = (searchQuery) => async (dispatch) => {
+	try {
+		dispatch({ type: START_LOADING });
+		const {
+			data: { data },
+		} = await api.fetchPostsBySearch(searchQuery);
+
+		dispatch({ type: FETCH_BY_SEARCH, payload: data });
+		dispatch({ type: END_LOADING });
+	} catch (error) {
+		console.log(error);
+	}
+};
+```
+
+## [Math.ceil()](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Math/ceil)
 
 ## reference
 

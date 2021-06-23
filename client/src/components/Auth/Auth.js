@@ -68,8 +68,7 @@ const Auth = () => {
 			console.log(error);
 		}
 	};
-	const googleFailure = (error) => {
-		console.log(error);
+	const googleError = () => {
 		console.log('Google Sign In was unsuccessful. Try Again Later');
 	};
 
@@ -150,7 +149,7 @@ const Auth = () => {
 							</Button>
 						)}
 						onSuccess={googleSuccess}
-						onFailure={googleFailure}
+						onFailure={googleError}
 						cookiePolicy="single_host_origin"
 					/>
 					<Grid container justify="flex-end">
