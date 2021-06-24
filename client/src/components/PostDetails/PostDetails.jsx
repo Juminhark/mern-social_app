@@ -43,7 +43,7 @@ const PostDetails = () => {
 		);
 	}
 
-	const recommendedPosts = posts.filter(({ _id }) => _id === post._id);
+	const recommendedPosts = posts.filter(({ _id }) => _id !== post._id);
 
 	const openPost = (id) => history.push(`/posts/${id}`);
 
@@ -94,7 +94,7 @@ const PostDetails = () => {
 			{recommendedPosts.length && (
 				<div className={classes.section}>
 					<Typography gutterBottom variant="h5">
-						You might also like:
+						another memories of creator
 					</Typography>
 					<Divider />
 					<div className={classes.recommendedPosts}>
