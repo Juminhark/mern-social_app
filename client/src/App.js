@@ -18,7 +18,8 @@ const App = () => {
 					<Route path="/posts" exact component={Home} />
 					<Route path="/posts/search" exact component={Home} />
 					<Route path="/posts/:id" component={PostDetails} />
-					//? user정보가 있으면 못들어가게 막아야함
+
+					{/* user정보가 있으면 못들어가게 막아야함 */}
 					<Route
 						path="/auth"
 						exact

@@ -283,6 +283,25 @@ export const getPostsBySearch = (searchQuery) => async (dispatch) => {
 };
 ```
 
+## Routing to Post Details page
+
+```ts
+// components/Posts/Post
+const openPost = () => history.push(`/posts/${post._id}`);
+
+return (
+<ButtonBase className={classes.cardAction} onClick={openPost}>
+	<CardContent>
+		Card
+	</CardContent>
+</ButtonBase>
+)
+
+// App.js
+<Route path="/posts/:id" component={PostDetails} />
+
+```
+
 ## [Math.ceil()](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Math/ceil)
 
 ## reference
