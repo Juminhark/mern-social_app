@@ -3,8 +3,8 @@ import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 import cors from 'cors';
 
-import dotenv from 'dotenv';
-dotenv.config();
+// import dotenv from 'dotenv';
+// dotenv.config();
 
 import postRoutes from './routes/posts.js';
 import userRoutes from './routes/users.js';
@@ -22,10 +22,12 @@ app.get('/', (req, res) => {
 	res.send('server is running');
 });
 
+const CONNECTION_URL =
+	'mongodb://zillda:123123123@juminhark-mongo-production/social';
 const PORT = process.env.PORT || 5000;
 
 mongoose
-	.connect(process.env.CONNECTION_URL, {
+	.connect(CONNECTION_URL, {
 		useNewUrlParser: true,
 		useUnifiedTopology: true,
 	})
