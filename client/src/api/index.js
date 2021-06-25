@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const API = axios.create({
-	baseURL: 'https://juminhark-mern-social-app-server.zeet.app/',
+	baseURL: 'https://mern-socialapp.herokuapp.com',
 });
 
 // Deploy baseURL: 'https://juminhark-mern-social-app-server.zeet.app/'
