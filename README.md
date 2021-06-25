@@ -1,7 +1,7 @@
 # social media app
 
 - [deploy-zeet](https://juminhark-mern-social-app.zeet.app/)
-- [deploy-netlify](https://adoring-blackwell-715cbe.netlify.app/posts)
+- [deploy-netlify](https://adoring-blackwell-715cbe.netlify.app/)
 
 ## server
 
