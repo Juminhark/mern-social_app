@@ -5,7 +5,7 @@ export default makeStyles((theme) => ({
 		borderRadius: '20px',
 		objectFit: 'cover',
 		width: '100%',
-		maxWidth: '500px',
+		maxWidth: '600px',
 		maxHeight: '600px',
 	},
 	card: {
