@@ -1,11 +1,11 @@
 import axios from 'axios';
 
 const API = axios.create({
-	baseURL: 'https://mern-socialapp.herokuapp.com',
+	baseURL: 'http://localhost:4000',
 });
 
-// Deploy baseURL: 'https://juminhark-mern-social-app-server.zeet.app/'
-// develop baseURL : 'http://localhost:5000'
+// Deploy baseURL: 'https://mern-socialapp.herokuapp.com'
+// develop baseURL : 'http://localhost:4000'
 
 API.interceptors.request.use((req) => {
 	if (localStorage.getItem('profile')) {

@@ -303,6 +303,12 @@ return (
 
 ```
 
+## Comment
+
+```js
+// client/components/PostDetail/CommentSection.jsx
+```
+
 ## [Math.ceil()](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Math/ceil)
 
 ## reference
