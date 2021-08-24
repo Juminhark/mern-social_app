@@ -29,11 +29,13 @@ const Navbar = () => {
 			const decodedToken = decode(token);
 
 			// ms
-			if (decodedToken.exp * 1000 < new Date().getTime()) logout();
+			if (decodedToken.exp * 1000 < new Date().getTime()) {
+				logout();
+			}
 		}
 
 		setUser(JSON.parse(localStorage.getItem('profile')));
-	}, [location]);
+	}, [location, user?.token]);
 
 	return (
 		<AppBar className={classes.appBar} position="static" color="inherit">
